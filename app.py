@@ -9,6 +9,15 @@ from sklearn.metrics import confusion_matrix, classification_report, roc_curve, 
 
 from model.train_and_eval import train_eval_all
 
+@st.cache_resource(show_spinner=False)
+def train_models_cached(df, target_col, test_size):
+    return train_eval_all(
+        df,
+        target_col=target_col,
+        test_size=test_size,
+        random_state=42
+    )
+
 # Page config
 st.set_page_config(page_title="Machine Learning Assignment 2 - Classifiers", layout="wide")
 st.title("Machine Learning Assignment 2 – Classification Models Demo")
@@ -121,8 +130,8 @@ test_size = st.slider(
 )
 
 with st.spinner("Training + evaluating all models..."):
-    results_df, fitted, le = train_eval_all(
-        df, target_col=target_col, test_size=test_size, random_state=42
+    results_df, fitted, le = train_models_cached(
+        df, target_col, test_size
     )
 
 st.subheader("Metrics Comparison Table (All Models)")

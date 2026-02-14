@@ -6,6 +6,8 @@ The goal is to analyze and compare model performance in terms of Accuracy, AUC, 
 
 ## b) Dataset description
 Dataset: UCI Breast Cancer Wisconsin (Diagnostic)  
+- Source: UCI Machine Learning Repository
+- Kaggle Link: https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data
 - Type: Binary classification (Benign vs Malignant)  
 - Instances: 569  
 - Features: 30 numeric features  

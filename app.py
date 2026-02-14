@@ -76,8 +76,9 @@ for i, col in enumerate(cols):
         default_index = i
         break
 
+st.markdown("### Select Target Column")
 target_col = st.selectbox(
-    "Select Target Column",
+    "Choose the column representing the classification label:",
     options=cols,
     index=default_index
 )
@@ -138,7 +139,9 @@ st.subheader("Metrics Comparison Table (All Models)")
 st.dataframe(results_df, use_container_width=True)
 
 model_names = results_df["ML Model Name"].tolist()
-chosen = st.selectbox("Select a model to view detailed report", options=model_names)
+
+st.markdown("### Select Model for Detailed Analysis")
+chosen = st.selectbox("Choose a trained model to view detailed report", options=model_names)
 
 # Detailed split (stratified when valid)
 X = df.drop(columns=[target_col])

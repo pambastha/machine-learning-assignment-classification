@@ -29,7 +29,7 @@ def build_preprocessor(X: pd.DataFrame) -> ColumnTransformer:
 
     categorical_pipe = Pipeline(steps=[
         ("imputer", SimpleImputer(strategy="most_frequent")),
-        ("onehot", OneHotEncoder(handle_unknown="ignore")),
+        ("onehot", OneHotEncoder(handle_unknown="ignore", sparse_output=False)),
     ])
 
     preprocessor = ColumnTransformer(

@@ -47,7 +47,10 @@ if use_builtin:
     # Convert numeric labels to readable form
     df["diagnosis"] = df["diagnosis"].map({0: "malignant", 1: "benign"})
 
-    st.success("Using sklearn built-in Breast Cancer dataset.")
+    st.success(
+        "Using sklearn built-in Breast Cancer dataset. "
+        "To use a different dataset, uncheck this option and upload a CSV file."
+    )
 
 else:
     uploaded = st.file_uploader(
